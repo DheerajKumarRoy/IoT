@@ -16,17 +16,19 @@ This repository provides a solution for controlling electric switches using an E
 ## Requirements
 ### Hardware
 - ESP32 Development Board
-- Relays (1 or more)
+- Relays (min=1, max=4)
 - Electric Switches
 - IR Receiver Module (e.g., TSOP1838)
-- Power Supply
+- Power Supply (5V & 2A min, mobile charger can work fine)
 - Connecting Wires
 - Breadboard or PCB for connections (optional)
+- LEDs (indication)
+- buzzer
 
 ### Software
 - MicroPython firmware for ESP32
 - Python environment for code customization
-- BLE-enabled mobile app for control
+- BLE-enabled mobile app for control [Download Oxymora_Tech BLE terminal apk from playstore](https://play.google.com/store/apps/details?id=com.oytechnology.bleterminal)
 
 ---
 
@@ -60,14 +62,14 @@ This repository provides a solution for controlling electric switches using an E
    - Point your IR remote at the receiver and press configured buttons to toggle switches.
 3. **Control with BLE App**:
    - Open your BLE app, pair it with the ESP32, and send commands to toggle switches.
-
+4. **Timer to schedule switches**:
+   - timer can be set in minutes for schedule on/off for a specfic switch to save electricity.
 ---
 
 ## File Structure
-- `main.py`: The main script that initializes the system and handles control logic.
-- `ir_handler.py`: Processes IR signals and maps them to actions.
-- `ble_handler.py`: Manages BLE communication for switch control.
-- `relay_controller.py`: Abstracts relay operations for easy integration.
+- `main.py`: The main script that initializes the system, relay operations and handles control logic.
+- `ir_rx.py`: Processes IR signals and maps them to actions.
+- `BLE_conn.py`: Manages BLE communication for switch control.
 
 ---
 
